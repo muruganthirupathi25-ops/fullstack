@@ -155,7 +155,12 @@ let employee1 ={
     salary:45000
 };
 
-for(let key in employee){
+for (let key in employee1) {
+    console.log(key + " : " + employee1[key]);
+}
+
+
+function calculateBonus(){
     if(employee1.salary >=40000){
         console.log("bonus=5000");
         
@@ -167,20 +172,26 @@ calculateBouuse();
 
 
 // task8 bank account functions
-
+ 
+function deposit(balance,amount){
+    balance=balance+amount;
+    console.log("deposited:$"+amount);
+    return balance;
+}
 function withdrawn(balance,amount){
     balance =balance-amount;
     console.log("withdrawn:$"+balance);
     return balance;
 }
+
 function checkbalance(balance){
     console.log("current balance :$"+balance);
-    return balancel;
+    return balance;
     
 }
+
 let balance=10000;
 balance=deposit(balance,5000);
-
 balance =withdraw(balance,2000);
 checkbalance(balance);
 
@@ -199,7 +210,6 @@ function mul(a,b){
 function div(a,b){
     return a/b;
 }
-
 function calculate(callback,a,b){
     return callback(a,b);
 }
