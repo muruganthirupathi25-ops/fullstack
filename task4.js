@@ -123,7 +123,7 @@ console.log(!(10>5));
     let num =7;
 
     for(let i =1; i<=10;i++){
-        console.log(num + " x " + " = " + (num * i));
+        console.log(num + " x " + i +" = " + (num * i));
         
     }
 
