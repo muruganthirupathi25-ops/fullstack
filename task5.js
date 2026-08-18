@@ -382,7 +382,7 @@ console.log(find45000);
 
 // 5 calcuate total salary using reduce()
 
-let totalSalary=employees.reduce(function (employee) {
+let totalSalary=employees.reduce(function (total,employee) {
     return total+employee.salary;
 
     
