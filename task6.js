@@ -427,7 +427,7 @@ function deleteEmployee() {
 }
 
 
-// Menu
+
 
 let choice;
 
