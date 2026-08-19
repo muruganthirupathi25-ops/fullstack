@@ -310,6 +310,180 @@ if (employee) {
     console.log("Employee not found");
 }
 
+// tonus task  Create a menu-driven Employee Management System
+
+//  1. Display All Employees
+
+function displayEmployees() {
+    employees.forEach(function(employee) {
+        console.log(
+            employee.id,
+            employee.name,
+            employee.department,
+            employee.salary,
+            employee.experience,
+            employee.skills
+        );
+    });
+}
+
+
+// 2. Add Employee
+
+function addEmployee() {
+    let id = Number(prompt("Enter Employee ID"));
+    let name = prompt("Enter Employee Name");
+    let department = prompt("Enter Department");
+    let salary = Number(prompt("Enter Salary"));
+    let experience = Number(prompt("Enter Experience"));
+
+    let employee = {
+        id: id,
+        name: name,
+        department: department,
+        salary: salary,
+        experience: experience,
+        skills: []
+    };
+
+    employees.push(employee);
+
+    console.log("Employee added successfully");
+}
+
+
+// 3. Search Employee
+
+function searchEmployee() {
+    let id = Number(prompt("Enter Employee ID"));
+
+    let employee = employees.find(function(employee) {
+        return employee.id === id;
+    });
+
+    if (employee) {
+        console.log(employee);
+    } else {
+        console.log("Employee not found");
+    }
+}
+
+
+// 4. Filter High Salary Employees
+
+function highSalaryEmployees() {
+    let result = employees.filter(function(employee) {
+        return employee.salary > 40000;
+    });
+
+    result.forEach(function(employee) {
+        console.log(employee);
+    });
+}
+
+
+// 5. Calculate Total Salary
+
+function totalSalary() {
+    let total = employees.reduce(function(total, employee) {
+        return total + employee.salary;
+    }, 0);
+
+    console.log("Total Salary:", total);
+}
+
+
+// 6. Sort By Salary
+
+function sortBySalary() {
+    employees.sort(function(a, b) {
+        return b.salary - a.salary;
+    });
+
+    console.log("Employees sorted by salary");
+
+    displayEmployees();
+}
+
+
+// 7. Delete Employee
+
+function deleteEmployee() {
+    let id = Number(prompt("Enter Employee ID"));
+
+    let employee = employees.find(function(employee) {
+        return employee.id === id;
+    });
+
+    if (employee) {
+        employees = employees.filter(function(employee) {
+            return employee.id !== id;
+        });
+
+        console.log("Employee deleted successfully");
+    } else {
+        console.log("Employee not found");
+    }
+}
+
+
+// Menu
+
+let choice;
+
+do {
+    choice = Number(prompt(
+        "1. Display All Employees\n" +
+        "2. Add Employee\n" +
+        "3. Search Employee\n" +
+        "4. Filter High Salary Employees\n" +
+        "5. Calculate Total Salary\n" +
+        "6. Sort By Salary\n" +
+        "7. Delete Employee\n" +
+        "8. Exit"
+    ));
+
+    switch (choice) {
+
+        case 1:
+            displayEmployees();
+            break;
+
+
+        case 2:
+            addEmployee();
+            break;
+
+        case 3:
+            searchEmployee();
+            break;
+
+        case 4:
+            highSalaryEmployees();
+            break;
+
+        case 5:
+            totalSalary();
+            break;
+
+        case 6:
+            sortBySalary();
+            break;
+
+        case 7:
+            deleteEmployee();
+            break;
+
+        case 8:
+            console.log("Thank you");
+            break;
+
+        default:
+            console.log("Invalid choice");
+    }
+
+} while (choice !== 8);
+
 
 
 
