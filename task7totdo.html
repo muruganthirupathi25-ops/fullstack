@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK7 TODO</title>
+</head>
+
+<body>
+
+    <label for="taskInput">Enter mobile models</label>
+
+    <input type="text" id="taskInput" placeholder="Enter a mobile">
+
+    <button id="contact">Add</button>
+
+    <ol id="items"></ol>
+
+
+    <script>
+
+        let input = document.querySelector("#taskInput");
+
+        let button = document.querySelector("#contact");
+
+        let ol = document.querySelector("#items");
+
+
+        button.addEventListener("click", () => {
+
+            let inp = input.value;
+
+            if (inp == "") {
+
+                console.log("Enter a mobile");
+
+            } else {
+
+                let list = document.createElement("li");
+
+                list.innerText = inp;
+
+                let del = document.createElement("button");
+
+                del.innerText = "Delete";
+
+                list.append(del);
+
+                ol.append(list);
+
+
+                del.addEventListener("click", () => {
+
+                    list.remove();
+
+                });
+
+                input.value = "";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
